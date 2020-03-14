@@ -1,6 +1,6 @@
 use amethyst::{
     core::transform::TransformBundle,
-    ecs::prelude::{ReadExpect, Resources, SystemData},
+    ecs::prelude::{ReadExpect, Resource, SystemData},
     prelude::*,
     renderer::{
         plugins::{RenderFlat2D, RenderToWindow},
@@ -28,7 +28,7 @@ fn main() -> amethyst::Result<()> {
         .with_bundle(
             RenderingBundle::<DefaultBackend>::new()
                 .with_plugin(
-                    RenderToWindow::from_config_path(display_config_path)
+                    RenderToWindow::from_config_path(display_config_path)?
                         .with_clear([0.34, 0.36, 0.52, 1.0]),
                 )
                 .with_plugin(RenderFlat2D::default()),
