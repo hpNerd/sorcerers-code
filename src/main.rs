@@ -1,3 +1,5 @@
+mod player;
+
 use amethyst::{
     core::transform::TransformBundle,
     ecs::prelude::{ReadExpect, Resource, SystemData},
@@ -13,7 +15,9 @@ use amethyst::{
 struct MyState;
 
 impl SimpleState for MyState {
-    fn on_start(&mut self, _data: StateData<'_, GameData<'_, '_>>) {}
+    fn on_start(&mut self, _data: StateData<'_, GameData<'_, '_>>) {
+        player::Player::new("asd".to_string());
+    }
 }
 
 fn main() -> amethyst::Result<()> {
